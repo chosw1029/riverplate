@@ -3,6 +3,7 @@ repository: https://github.com/chosw1029/riverplate
 
 packages:
   - apps/**
+  - core/**
 
 command:
   version:
