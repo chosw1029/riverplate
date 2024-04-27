@@ -1,0 +1,28 @@
+name: Riverplate
+
+packages:
+  - apps/**
+
+command:
+  version:
+    # Generate commit links in package changelogs.
+    linkToCommits: true
+    # # Only allow versioning to happen on main branch.
+    # branch: master
+    # Additionally build a changelog at the root of the workspace.
+    workspaceChangelog: true
+  boostrap:
+    # It seems so that running "pub get" in parallel has some issues (like
+    # https://github.com/dart-lang/pub/issues/3404). Disabling this feature
+    # makes the CI much more stable.
+    runPubGetInParallel: false
+    usePubspecOverrides: true
+    environment:
+      sdk: ">=3.0.0 <4.0.0"
+      flutter: ">=3.0.0 <4.0.0"
+    dev_dependencies:
+      build_runner: ^2.4.8
+
+scripts:
+  analyze:
+    exec: fvm dart analyze .
